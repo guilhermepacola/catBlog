@@ -219,8 +219,8 @@ footer p {
     font-size: 1.4rem;
 }
 
-/*FOR MEDIUM DEVICED WITH 740PX*/
-@media (min-width: 740px) {
+/*FOR MEDIUM DEVICED WITH 760PX*/
+@media (min-width: 760px) {
 
     .container {
         margin: 4.4rem 0 0 3rem;
