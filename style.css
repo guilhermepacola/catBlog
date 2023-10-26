@@ -24,7 +24,7 @@ body {
 #app {
     display: grid;
     grid-template-rows: max-content 1fr max-content;
-    min-height: 50vh;
+    max-height: 100vh;
 
 }
 
