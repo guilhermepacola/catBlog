@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --color-base-white-50: hsla(0, 0%, 100%, 0.2);
+    --color-base-white-100: hsla(0, 0%, 100%, 1);
+    --color-base-blue-100: hsla(195, 46%, 40%, 1);
+    --color-base-black-100: hsla(240, 6%, 8%, 1);
+    --color-base-black-200: hsla(240, 6%, 13%, 1);
+}
+
+
+body {
+    font-family: 'Mulish', sans-serif;
+}
+
+#app {
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    height: 100vh;
+
+}
+
+/*HEADER STYLES*/
+
+header {
+    padding: 1.2rem 2.8rem;
+    width: 100%;
+
+    background: #387E96;
+}
+
+header .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2.4rem;
+}
+
+header form {
+    flex: 1;
+    max-width: 90rem;
+}
+
+.logo {
+    background-color: #F4FCFF;
+
+    width: 4.2rem;
+    height: 4.2rem;
+
+    border-radius: 50%;
+    padding: 0.8rem;
+}
+
+.perfil {
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+.input-wrapper label {
+    width: 1px;
+    height: 1px;
+
+    position: absolute;
+    overflow: hidden;
+}
+
+.input-wrapper input {
+    font-size: 1.6rem;
+    font-weight: 600;
+
+    padding: 1.6rem 1.2rem;
+
+    background: var(--color-base-white-50);
+    color: var(--color-base-white-100);
+
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+
+}
+
+.input-wrapper input::placeholder {
+    color: var(--color-base-white-100);
+}
+
+
+/*PRINCIPAL CONTENT STYLES*/
+
+.imagePrincipal {
+    max-width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.principalContent {
+    overflow-y: scroll;
+}
+
+
+main.container {
+    max-width: 77rem;
+}
+
+main .content {
+    padding: 3rem 2.6rem 4rem 2.2rem;
+}
+
+main h1,
+aside h1 {
+    color: var(--color-base-black-200);
+
+    font-size: clamp(1.9rem, 2.3vw, 2.4rem);
+    line-height: 3rem;
+    font-weight: 700;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0.8rem 0 2.6rem;
+}
+
+.buttons button {
+    width: 4.1rem;
+    height: 4.1rem;
+
+    padding: 1.2rem;
+
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-base-blue-100);
+}
+
+.text {
+    color: var(--color-base-black-100);
+
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+    font-weight: 400;
+
+    text-align: justify;
+
+    max-width: 80rem;
+}
+
+/*CARDS STYLES*/
+
+aside {
+
+    display: grid;
+    align-items: center;
+    gap: 3.2rem;
+
+    padding: 0 2.6rem 3.4rem 2.2rem;
+
+}
+
+.cards {
+    display: grid;
+    gap: 3.2rem;
+
+    max-width: 34.5rem;
+}
+
+.itens {
+    display: flex;
+    gap: 1.6rem;
+    overflow: hidden;
+    max-height: 8rem;
+}
+
+.itens img {
+    width: 30%;
+    border-radius: 5px;
+    transition: all 200ms ease-out;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+
+    display: block;
+}
+
+.principalContent aside img:hover,
+button:hover {
+    filter: hue-rotate(10deg) contrast(105%) saturate(210%);
+    transform: scale(1.1);
+}
+
+
+.itens p {
+    padding-top: 1.3rem;
+    font-size: 1.0rem;
+}
+
+/*FOOTER STYLES*/
+footer {
+    background-color: var(--color-base-blue-100);
+}
+
+footer p {
+    font-weight: 600;
+    color: var(--color-base-white-100);
+
+    padding: 1.8rem;
+    text-align: center;
+
+    font-size: 1.4rem;
+}
+
+/*FOR MEDIUM DEVICED WITH 740PX*/
+@media (min-width: 740px) {
+
+    .container {
+        margin: 4.4rem 0 0 3rem;
+    }
+
+    main {
+        display: grid;
+        place-content: center;
+    }
+
+    .principalContent {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+
+    }
+
+    #app main {
+        place-self: center;
+    }
+
+
+    .contentButton {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-bottom: 3.2rem;
+        max-width: 80rem;
+    }
+
+    .buttons {
+        margin: 0;
+    }
+
+    aside {
+        align-content: start;
+
+        margin-top: 4.2rem;
+    }
+
+}
+
+
+
+
+
+/*ANIMATION FOR THE PAGE*/
+
+header {
+
+    --startY: -100%;
+    animation: move .7s;
+}
+
+footer {
+    --startY: 100%;
+    animation: move .7s;
+}
+
+main, aside, .itens {
+    --delay: .4s;
+    animation: appear 1s var(--delay) backwards;
+}
+
+
+@keyframes move {
+
+    from {
+        transform: translateY(var(--startY));
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
